@@ -6,6 +6,8 @@ module Commands
       Commands::AwardPoints.new(message_text, options)
     when /#pc standings/
       Commands::Standings.new(message_text, options)
+    when /#pc Add student/
+      Commands::Student.new(message_text, options)
     else
       Commands::Invalid.new(message_text, options)
     end
