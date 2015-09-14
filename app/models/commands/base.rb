@@ -22,6 +22,6 @@ class Commands::Base
   end
 
   def admins
-    {"U02MYKGQB" => "Horace", "U03GQCTPX" => "Jason"}
+    {"U04TJHSHZ" => "Rebecca", "U03GQCTPX" => "Jason"}
   end
 end
