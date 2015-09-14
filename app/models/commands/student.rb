@@ -20,12 +20,13 @@ class Commands::Student < Commands::Base
   end
 
   def create_student
-    Rails.logger.info "Text: #{text}"
-    if text =~ /#pc Add student (.*) \(.*\) to the (.*) posse/i
+    if text =~ /#pc Add student (.*) \((.*)\) to the (.*) posse/i
       student_name = $1
       student_login = $2
       posse_name = $3
-      Rails.logger.info "Name: #{student_name}, #{student_login}, #{posse_name}"
+      slack_login = student_login.match(/\@(.+)/)[1]
+      Rails.logger.info "Name: #{student_name}, #{student_login}, #{slack_login}, #{posse_name}"
+      # Student.where(slack_uid: )
     end
     # if pa.save
     #   {"json" => {"status" => "success", "current_score" => posse.current_score, "text" => success_message},
