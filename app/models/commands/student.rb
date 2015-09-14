@@ -32,15 +32,9 @@ class Commands::Student < Commands::Base
         student.posse = posse
       end
       {"json" => {"status" => "200", "text" => "#{student_name} added to the #{posse.name} posse."}}
+    else
+      {"json" => {"status" => "200", "text" => "Try: #pc Add student Joe Smith (@joesmith) to the Foo posse"}}
     end
-    # if pa.save
-    #   {"json" => {"status" => "success", "current_score" => posse.current_score, "text" => success_message},
-    #       "status" => 200}
-    # else
-    #   {"json" => {"status" => "failure", "errors" => pa.errors.full_messages},
-    #       "status" => 200}
-    # end
-    {"json" => {"status" => "200", "text" => "Um, ok"}}
   end
 
   def success_message
