@@ -26,7 +26,12 @@ class Commands::Student < Commands::Base
       posse_name = $3
       slack_login = student_login.match(/\@(\w+)/)[1]
       Rails.logger.info "Name: #{student_name}, #{student_login}, #{slack_login}, #{posse_name}"
-      # Student.where(slack_uid: )
+      posse = Posse.where(name: posse_name).first_or_create
+      Student.where(slack_uid: slack_login).first_or_create do |student|
+        student.name = student_name
+        student.posse = posse
+      end
+      {"json" => {"status" => "200", "text" => "#{student_name} added to the #{posse.name} posse."}}
     end
     # if pa.save
     #   {"json" => {"status" => "success", "current_score" => posse.current_score, "text" => success_message},
