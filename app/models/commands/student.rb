@@ -20,7 +20,7 @@ class Commands::Student < Commands::Base
   end
 
   def create_student
-    if text =~ /#pc Add student (.*) \(\@.*\) to the (.*) posse/i
+    if text =~ /#pc Add student (.*) \(.*\) to the (.*) posse/i
       student_name = $1
       student_login = $2
       posse_name = $3
