@@ -24,7 +24,7 @@ class Commands::Student < Commands::Base
       student_name = $1
       student_login = $2
       posse_name = $3
-      slack_login = student_login.match(/\@(.+)/)[1]
+      slack_login = student_login.match(/\@(\w+)/)[1]
       Rails.logger.info "Name: #{student_name}, #{student_login}, #{slack_login}, #{posse_name}"
       # Student.where(slack_uid: )
     end
