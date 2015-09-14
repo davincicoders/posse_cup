@@ -20,6 +20,7 @@ class Commands::Student < Commands::Base
   end
 
   def create_student
+    Rails.logger.info "Text: #{text}"
     if text =~ /#pc Add student (.*) \(.*\) to the (.*) posse/i
       student_name = $1
       student_login = $2
